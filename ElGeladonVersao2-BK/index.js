@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 
-const port = 3000;
+const port = 3333;
 const app = express();
 
 const route = require('./src/routes/paletas.routes');
