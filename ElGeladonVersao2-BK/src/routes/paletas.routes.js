@@ -1,5 +1,6 @@
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('../../swagger.json');
+const controllerCarrinho = require('../controllers/carrinho.controller')
 
 const express = require('express');
 const router = express.Router();//ajuda criar rotas dentro do arquivo
@@ -29,5 +30,12 @@ router.delete('/delete-paleta/:id',validId,paletasController.deletePaletaControl
 
 //cria um dado e substitui por um novo-- usaremos o put para atualizar todo o recurso, p tach pode ser usado para atualizar parte de um registro
 //router.put('/update/:id',paletasController.updatePaletaController);
+
+const controllerCarinho = require('../controllers/carrinho.controller.js');
+
+router.get('/all-carrinho', controllerCarrinho.findAllCarrinhoController);
+router.post('/create-carrinho',controllerCarrinho.createManyItemsCarrinhoController);
+router.delete('/finish-carrinho',controllerCarrinho.deleteAllItemsCarrinhoController);
+
 
 module.exports = router;
