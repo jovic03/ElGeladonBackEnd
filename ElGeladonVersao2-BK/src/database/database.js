@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const remoteUrl = 'mongodb+srv://root:root@api-elgeladon.ibmb8.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
 const localUrl = 'mongodb://localhost:28017/paletas-db' 
+const envUrl = process.env.URI_DATABASE;
 //mongodb+srv://admin:RDVUqRRl2f5UPOLX@cluster0.rfapc.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
 //'mongodb://root:root@localhost:27017/?authMechanism=DEFAULT
 //mongodb://localhost:27017/paletas-db
@@ -8,7 +9,7 @@ const localUrl = 'mongodb://localhost:28017/paletas-db'
 //mongodb+srv://root:<password>@api-elgeladon.ibmb8.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
 
 const connectToDatabase = () => {// mongodb://localhost:27017/paletas-db  ---- mongodb+srv://localhost:27017/paletas-db
-    mongoose.connect(`${remoteUrl}`,{//os campos abaixo são segurando a estabilidade de conexao de rede
+    mongoose.connect(envUrl,{//os campos abaixo são segurando a estabilidade de conexao de rede
         useNewUrlParser: true,//use esse sistema de url
         useUnifiedTopology: true,//ferramente de monitoramento de dados
       })
